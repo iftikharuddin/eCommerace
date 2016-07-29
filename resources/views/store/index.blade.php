@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-lg-12 col-md-12">
 			@if(Auth::check())
-				<h1>Ehehehe Your are  signin! {!! Auth::user()->name !!}</h1>
+				<h1>Welcome {!! Auth::user()->name !!}</h1>
 				<li>{!! Html::link('/logout', 'Signout') !!}</li>
 			@else
 				<h1>Not logged babay</h1>
@@ -27,6 +27,7 @@
 					</ul>
 			</div>
 		</div>
+		
 		<div class="col-md-5 col-lg-5 col-sm-12"> 
 			{!! Form::open(array('url'=>'store/search/' ,'method'=>'get'))!!}
 			{!! Form::text('keyword',null , array('placeholder'=>'Search by Keyword...')) !!}
@@ -41,8 +42,9 @@
 			<li>{!! $product->title !!} - ({!! $product->price !!})</li>
 			<p> {!! $product->description !!}</p>
 			<a href="store/{!! $product->id !!}">
-								{!! Html::image($product->image ,$product->title) !!}</p>
-							</a> {!! Form::close() !!}
+			 {!! Html::image($product->image ,$product->title) !!}</p>
+			</a> 
+			{!! Form::close() !!}
 		</div>
 		@endforeach
 
